@@ -2,6 +2,7 @@
 
 A full Judo scoreboard software in a *single HTML file*.
 Usable without webserver, just open score.html locally in your webbrowser. The ressource folder is for convenience only.
+Optionally you can use a Google Spreadsheet to add data automaticly to your scoreboard. With each reload (shortcut: r) data is fetched from your spreadsheet. It displays data of the first fight which has  `done == false`.
 
 ![screenshot](screenshot.jpg?raw=true "Example view")
 
