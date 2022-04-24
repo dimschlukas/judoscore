@@ -269,7 +269,7 @@ Free usage and modification for non-commercial use.
          */
         function drawPoints() {
             for (var i = 0; i < 2; i++) {
-                ippon_divs[i].innerHTML = (ippons[i] > 0) ? ippons[i] : "&nbsp;";
+                ippon_divs[i].innerHTML = ippons[i];
                 wazari_divs[i].innerHTML = wazaris[i];
                 shido_divs[i].src = "data:image/png;base64," + shidoImgs[shidos[i]];
             }
