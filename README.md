@@ -35,11 +35,11 @@ To get data off a sheet you have to do following steps.
 3. get your spreadsheet-ID from the URL and your sheetname and set the variables whithin score.html:
 
 ``` js
-        // set spreadSheetId and sheet variable, if you want to load fighter names from a Google sheet.
-        var spreadSheetId = "";
-        var sheet = "";
-        var apiKey = ""; // optional
-        var fightInfoJsonServerUrl = "";
+// set spreadSheetId and sheet variable, if you want to load fighter names from a Google sheet.
+var spreadSheetId = "";
+var sheet = "";
+var apiKey = ""; // optional
+var gsx2json = "https://gsx2json.com/api"; // if you use your own self hosted gsx2json instance. Change url accordingly.
 ```
 I highly suggest you use a Google Developer API key. For more information visit [GSX2JSON](https://gsx2json.com/).
 
