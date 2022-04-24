@@ -54,9 +54,11 @@ Free usage and modification for non-commercial use.
         var spreadSheetId = "";
         var sheet = "";
         var apiKey = ""; // optional
+        var gsx2json = "https://gsx2json.com/api"; // if you use your own self hosted gsx2json instance. Change url accordingly.
+        
         var fightInfoJsonServerUrl = "";
         if (spreadSheetId && sheet) {
-            fightInfoJsonServerUrl = "https://gsx2json.com/api?id=" + spreadSheetId + "&sheet=" + sheet;
+            fightInfoJsonServerUrl = gsx2json + "?id=" + spreadSheetId + "&sheet=" + sheet;
         }
         if (apiKey) {
             fightInfoJsonServerUrl = fightInfoJsonServerUrl + "&api_key=" + apiKey;
