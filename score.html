@@ -16,6 +16,7 @@ Free usage and modification for non-commercial use.
 
         var ippons = []; // holds ippon points
         var wazaris = []; // holds wazari points
+        var yukos = []; // holds yuko points
         var shidos = []; // holds shido points
         var fightActive; // true, if fight clock is running
         var osaeActive; // true, if osaekomi clock is running
@@ -34,6 +35,7 @@ Free usage and modification for non-commercial use.
 
         var ippon_divs = [];
         var wazari_divs = [];
+        var yuko_divs = [];
         var shido_divs = [];
         var fightTime_div;
         var osaeTime_div;
@@ -218,6 +220,25 @@ Free usage and modification for non-commercial use.
             }
             drawPoints();
         }
+        
+        /*
+         * Set yuko
+         * called by user event
+         */
+        function yuko(e) {
+            var whiteBlue = (this.id == "white_yuko") ? 0 : 1;
+
+            switch (e.button) {
+                case 0: // left mouse btn
+                    yukos[whiteBlue] = Math.min(yukos[whiteBlue] + 1, 99);
+                    break;
+
+                case 2: // right mouse btn
+                    yukos[whiteBlue] = Math.max(yukos[whiteBlue] - 1, 0);
+                    break;
+            }
+            drawPoints();
+        }
 
         /*
          * Set shido
@@ -282,6 +303,7 @@ Free usage and modification for non-commercial use.
             for (var i = 0; i < 2; i++) {
                 ippon_divs[i].innerHTML = ippons[i];
                 wazari_divs[i].innerHTML = wazaris[i];
+                yuko_divs[i].innerHTML = yukos[i];
                 shido_divs[i].src = "data:image/png;base64," + shidoImgs[shidos[i]];
             }
         }
@@ -317,6 +339,11 @@ Free usage and modification for non-commercial use.
             wazari_divs[1] = document.getElementById("blue_wazari");
             wazari_divs[0].addEventListener("mousedown", wazari);
             wazari_divs[1].addEventListener("mousedown", wazari);
+            
+            yuko_divs[0] = document.getElementById("white_yuko");
+            yuko_divs[1] = document.getElementById("blue_yuko");
+            yuko_divs[0].addEventListener("mousedown", yuko);
+            yuko_divs[1].addEventListener("mousedown", yuko);
 
             shido_divs[0] = document.getElementById("white_shido");
             shido_divs[1] = document.getElementById("blue_shido");
@@ -353,6 +380,7 @@ Free usage and modification for non-commercial use.
         function reset() {
             ippons = [0, 0];
             wazaris = [0, 0];
+            yukos = [0, 0];
             shidos = [0, 0];
             fightActive = false;
             osaeActive = false;
@@ -642,14 +670,14 @@ Free usage and modification for non-commercial use.
         #white .points {
             position: absolute;
             bottom: 3%;
-            left: 50%;
+            left: 35%;
             color: #000000;
         }
 
         #blue .points {
             position: absolute;
             top: 3%;
-            left: 50%;
+            left: 35%;
             color: #ffffff;
         }
 
@@ -826,6 +854,7 @@ Free usage and modification for non-commercial use.
         <div class="points">
             <div id="white_ippon" class="point" title="Ippon">&nbsp;</div>
             <div id="white_wazari" class="point" title="Wazari">0</div>
+            <div id="white_yuko" class="point" title="Yuko">0</div>
             <img id="white_shido" class="shido" title="Shido"
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" />
         </div>
@@ -836,6 +865,7 @@ Free usage and modification for non-commercial use.
         <div class="points">
             <div id="blue_ippon" class="point" title="Ippon">&nbsp;</div>
             <div id="blue_wazari" class="point" title="Wazari">0</div>
+            <div id="blue_yuko" class="point" title="Yuko">0</div>
             <img id="blue_shido" class="shido" title="Shido"
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" />
         </div>
